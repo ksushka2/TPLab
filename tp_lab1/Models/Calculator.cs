@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
+//sbyte, decimal, RadioButton,  _ViewStart.cshtml, Compare, ValidationSummary(), состояние сеанса (класс Session), IndexOf, Remove(), Insert(). 
 namespace Calculator.Models
 
 {
