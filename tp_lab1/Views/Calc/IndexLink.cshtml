@@ -1,0 +1,73 @@
+﻿@{
+    ViewData["Title"] = "Last operation";
+}
+<div>
+    @{
+        ViewBag.Title = "Last operation";
+
+        string operation = ViewBag.LastOperation;
+
+        if (!string.IsNullOrEmpty(operation))
+        {
+            int plusIndex = operation.IndexOf("+");
+            int minusIndex = operation.IndexOf("-");
+            int multiplyIndex = operation.IndexOf("*");
+            int divideIndex = operation.IndexOf("/");
+
+            int operateIndex;
+            string wordOperate;
+
+            if (plusIndex != -1)
+            {
+                operateIndex = plusIndex;
+                wordOperate = "plus";
+            }
+            else if (minusIndex != -1)
+            {
+                operateIndex = minusIndex;
+                wordOperate = "minus";
+            }
+            else if (multiplyIndex != -1)
+            {
+                operateIndex = multiplyIndex;
+                wordOperate = "multiply";
+            }
+            else if (divideIndex != -1)
+            {
+                operateIndex = divideIndex;
+                wordOperate = "divide";
+            }
+            else
+            {
+                operateIndex = -1;
+                wordOperate = "";
+            }
+
+            if (operateIndex != -1)
+            {
+                operation = operation.Remove(operateIndex, 1);
+                operation = operation.Insert(operateIndex, wordOperate);
+            }
+
+            ViewBag.LastOperation = operation;
+        }
+    }
+</div>
+<div>
+<h2>Last Operation</h2>
+    @if (ViewBag.LastOperation != null)
+    {
+        <div>
+            <p class="lead">@ViewBag.LastOperation</p>
+        </div>
+    }
+    else
+    {
+        <div>
+            History is null
+        </div>
+    }
+    <div class="mt-3">
+        @Html.ActionLink("Back", "Index", "Calc", null, new { @class = "btn btn-info" })
+    </div>
+</div>

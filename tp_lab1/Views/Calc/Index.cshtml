@@ -1,0 +1,54 @@
+﻿@model Calculator.Models.Calculator
+<div>
+@{
+    ViewBag.Title = "Calculate";
+}
+</div>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    @Html.ValidationSummary(false, "Please, fix the errors:", new { @class = "error-message" })
+    @using (Html.BeginForm("Calculate", "Calc", FormMethod.Post))
+    {
+        <h2>Start Math</h2>
+        <p>1 operand: @Html.TextBoxFor(x => x.operand1, new { @class = "textBoxStyle" })</p>
+        <p>2 operand: @Html.TextBoxFor(x => x.operand2, new { @class = "textBoxStyle" })</p>
+
+        <p>Operation:</p>
+        <div>
+            @Html.RadioButtonFor(x => x.operation, "+") <label>(+)</label><br />
+            @Html.RadioButtonFor(x => x.operation, "-") <label>(-)</label><br />
+            @Html.RadioButtonFor(x => x.operation, "*") <label>(*)</label><br />
+            @Html.RadioButtonFor(x => x.operation, "/") <label>(/)</label>
+        </div>
+
+        <p>Result: <label>@Model?.result</label></p>
+        <input type="submit" name="action" value="math" required class="btn" />
+        <br />
+        <input type="submit" name="action" value="clear" compare class="btn" />
+    }
+
+    <div class="mt-3">
+        @Html.ActionLink("Operation view", "IndexLink", "Calc", null, new { @class = "btn" })
+    </div>
+    @if (Model != null)
+    {
+        if (Model.result == ViewBag.WantResult)
+        {
+            <p>
+                Wanted result!
+            </p>
+        }
+        else
+        {
+            <p>
+                Unwanted result!
+            </p>
+        }
+    }
+</body>
+</html>
