@@ -1,0 +1,25 @@
+﻿@model Dictionary<string, string>
+
+<h2>Просмотр Cookie</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Ключ</th>
+            <th>Значение</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cookie in Model)
+        {
+            <tr>
+                <td>@cookie.Key</td>
+                <td>@cookie.Value</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    @Html.ActionLink("Вернуться к списку", "Index", null, new { @class = "btn btn-secondary" })
+</div>

@@ -1,0 +1,43 @@
+﻿<!-- ЧАСТЬ 1: LabelFor, DisplayFor -->
+
+@model DrugFarmModel
+
+@{
+    ViewBag.Title = "Просмотр лекарства";
+}
+<h1>@ViewBag.Title</h1>
+<hr />
+
+<div class="form-group">
+    @Html.LabelFor(m => m.DrugId)
+    @Html.DisplayFor(m => m.DrugId)
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.DrugName)
+    @Html.DisplayFor(m => m.DrugName)
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.FormPack)
+    @Html.DisplayFor(m => m.FormPack)
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.PackId)
+    @Html.DisplayFor(m => m.PackId)
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.ProductionDate)
+    @Html.DisplayFor(m => m.ProductionDate)
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.Price)
+    @Html.DisplayFor(m => m.Price)
+</div>
+
+<div>
+    @Html.ActionLink("Вернуться к списку", "Index", null, new { @class = "btn btn-secondary" })
+</div> 

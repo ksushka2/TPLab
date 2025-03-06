@@ -1,0 +1,18 @@
+﻿<!-- ЧАСТЬ 1: LabelForModel, EditorForModel -->
+
+@model DrugFarmModel
+
+@{
+    ViewBag.Title = "Добавить лекарство";
+}
+<h1>@ViewBag.Title</h1>
+<hr />
+@using (Html.BeginForm())
+{
+    @Html.LabelForModel()
+    @Html.EditorForModel()
+
+    <div class="form-buttons">
+        <button class="btn btn-primary" type="submit">Добавить лекарство</button>
+    </div>
+}
