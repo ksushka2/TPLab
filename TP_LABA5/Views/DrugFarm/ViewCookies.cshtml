@@ -10,7 +10,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var cookie in Model)
+        @foreach (var cookie in Model.Where(c => c.Key == "CurrentIndex"))
         {
             <tr>
                 <td>@cookie.Key</td>
