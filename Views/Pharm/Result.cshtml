@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Информация о фармацевтическом продукте";
+}
+
+<h2>Информация о фармацевтическом продукте</h2>
+<!--вывести их в ещё одном представлении, передав значения с помощью объекта ViewBag, если числовой идентификатор не пустой. -->
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">@ViewBag.ProductName</h5>
+        <p class="card-text"><strong>ID продукта:</strong> @ViewBag.ProductId</p>
+        <p class="card-text"><strong>Дата изготовления:</strong> @(ViewBag.ProductionDate?.ToString("dd.MM.yyyy") ?? "Не указана")</p>
+        <p class="card-text"><strong>Форма выпуска:</strong> @ViewBag.Form</p>
+        <p class="card-text"><strong>Цена:</strong> @ViewBag.Price руб.</p>
+         <p class="card-text"><strong>В наличии:</strong> @(ViewBag.IsAvailable ? "Да" : "Нет")</p>
+    </div>
+</div>
+
+<div class="mt-3">
+    <a href="@Url.Action("Index")" class="btn btn-primary">Назад к форме</a>
+</div>
